@@ -1,0 +1,27 @@
+created:
+    - database/factories/StoreFactory.php
+    - database/factories/ProductFactory.php
+    - database/factories/StockFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/OrderItemFactory.php
+    - database/factories/ComplaintFactory.php
+    - database/migrations/2026_01_30_131956_create_stores_table.php
+    - database/migrations/2026_01_30_131957_create_products_table.php
+    - database/migrations/2026_01_30_131958_create_stocks_table.php
+    - database/migrations/2026_01_30_131959_create_orders_table.php
+    - database/migrations/2026_01_30_132000_create_order_items_table.php
+    - database/migrations/2026_01_30_132001_create_complaints_table.php
+    - app/Models/Store.php
+    - app/Models/Product.php
+    - app/Models/Stock.php
+    - app/Models/Order.php
+    - app/Models/OrderItem.php
+    - app/Models/Complaint.php
+models:
+    User: { name: string, email: 'string:unique', password: string, role: string, timestamps: timestamps }
+    Store: { name: string, location: string, timestamps: timestamps }
+    Product: { name: string, barcode: 'string:unique', timestamps: timestamps }
+    Stock: { store_id: 'id foreign', product_id: 'id foreign', quantity: integer }
+    Order: { store_id: 'id foreign', user_id: 'id foreign', status: string, order_time: datetime }
+    OrderItem: { order_id: 'id foreign', product_id: 'id foreign', quantity: integer }
+    Complaint: { user_id: 'id foreign', description: text, status: string, timestamps: timestamps }

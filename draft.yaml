@@ -1,0 +1,32 @@
+models:
+  Store:
+    name: string
+    location: string
+    timestamps: true
+
+  Product:
+    name: string
+    barcode: string:unique
+    timestamps: true
+
+  Stock:
+    store_id: id foreign
+    product_id: id foreign
+    quantity: integer
+
+  Order:
+    store_id: id foreign
+    user_id: id foreign
+    status: string
+    order_time: datetime
+
+  OrderItem:
+    order_id: id foreign
+    product_id: id foreign
+    quantity: integer
+
+  Complaint:
+    user_id: id foreign
+    description: text
+    status: string
+    timestamps: true
